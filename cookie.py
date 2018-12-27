@@ -8,7 +8,7 @@ import time
 driver= webdriver.Chrome()
 driver.get("https://pan.baidu.com/")
 login=driver.find_element_by_css_selector("#u1 > a.lb")
-print login.get_attribute("innerHTML")
+print (login.get_attribute("innerHTML"))
 login.click()
 time.sleep(5)
 userlogin=driver.find_element_by_css_selector("#TANGRAM__PSP_10__footerULoginBtn")
