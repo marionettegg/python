@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 
 from selenium import webdriver
 from PIL import Image, ImageEnhance
@@ -13,8 +12,8 @@ def main(username='sa', password='1', path='/Users/wzq/Desktop/chromedriver',
     # website address
 
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
-    chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument('--headless')                     set as headless or not
+    # chrome_options.add_argument('--disable-gpu')
     driver = webdriver.Chrome(executable_path=path, chrome_options=chrome_options)
     # Setting chrome as headless mode
 
