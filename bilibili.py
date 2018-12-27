@@ -22,6 +22,7 @@ from time import sleep
 def init():
     # 定义为全局变量，方便其他模块使用
     global url, browser, username, password, wait
+
     # 登录界面的url
     url = 'https://passport.bilibili.com/login'
     # 实例化一个chrome浏览器
@@ -33,6 +34,8 @@ def init():
     password = '123456'
     # 设置等待超时
     wait = WebDriverWait(browser, 20)
+
+
 
 
 
@@ -238,19 +241,20 @@ def move_to_gap(trace):
         # 使用move_by_offset()方法拖动滑块，perform()方法用于执行
         ActionChains(browser).move_by_offset(xoffset=x, yoffset=0).perform()
     # 模拟人类对准时间
-    sleep(0.5)
+    sleep(1)
     # 释放滑块
     ActionChains(browser).release().perform()
 
 
 # 主程序
 def main():
+    roundd = 0
     # 初始化
     init()
     ssl._create_default_https_context = ssl._create_unverified_context
     # 登录
     login()
-    while browser.title == '哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili':
+    while browser.title == '哔哩哔哩弹幕视频网 - ( ゜- ゜)つロ 乾杯~ - bilibili' and roundd < 10:
         # 获取缺口图片及其位置信息
         bg, bg_position = get_image_info('bg')
 
@@ -277,6 +281,7 @@ def main():
         # 移动滑块
         move_to_gap(trace)
         sleep(5)
+        roundd += 1
     browser.close()
 
 
