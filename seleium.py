@@ -13,6 +13,7 @@ def main(username='sa', password='1'):
     chrome_options = Options()
     # chrome_options.add_argument('--headless')
     # chrome_options.add_argument('--disable-gpu')
+    # chrome_options.add_argument("--start-maximized")
     driver = webdriver.Chrome(executable_path='/Users/wzq/Desktop/chromedriver', chrome_options=chrome_options)
     # Setting chrome as headless mode
 
